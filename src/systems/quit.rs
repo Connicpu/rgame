@@ -14,7 +14,7 @@ impl Process for QuitSystem {
     fn process(&mut self, _: &mut DataHelper) {
         if !self.quit {
             // Arbitrary wait
-            sleep(Duration::milliseconds(100));
+            sleep(Duration::milliseconds(10));
         }
     }
 }

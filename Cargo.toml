@@ -6,6 +6,9 @@ authors = ["Connor Hilarides <connorcpu@live.com>"]
 [dependencies]
 ecs = "*"
 
+[dependencies.image]
+git = "https://github.com/PistonDevelopers/image.git"
+
 [dependencies.time]
 git = "https://github.com/rust-lang/time.git"
 
@@ -13,3 +16,6 @@ git = "https://github.com/rust-lang/time.git"
 git = "https://github.com/tomaka/glium.git"
 [dependencies.glium_macros]
 git = "https://github.com/tomaka/glium.git"
+
+[dependencies.glutin]
+git = "https://github.com/tomaka/glutin.git"

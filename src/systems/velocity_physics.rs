@@ -17,7 +17,7 @@ impl EntityProcess for VelocityPhysics {
             position.x += velocity.dx * time.dt;
             position.y += velocity.dy * time.dt;
 
-            println!("Entity({:?}) position is now {:?}", e, position);
+            println!("{:?} is now at {:?}", *e, position);
         }
     }
 }

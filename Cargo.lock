@@ -5,6 +5,8 @@ dependencies = [
  "ecs 0.17.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "glium 0.0.3 (git+https://github.com/tomaka/glium.git)",
  "glium_macros 0.0.1 (git+https://github.com/tomaka/glium.git)",
+ "glutin 0.0.6 (git+http://github.com/tomaka/glutin)",
+ "image 0.2.0-alpha.11 (git+https://github.com/PistonDevelopers/image)",
  "time 0.1.19 (git+https://github.com/rust-lang/time.git)",
 ]
 

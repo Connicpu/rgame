@@ -1,6 +1,7 @@
-use ecs::{System, Process};
+use ecs::System;
+use ecs::system::entity::EntityProcess;
+use {DataHelper, EntityIter};
 use components as comps;
-use DataHelper;
 use time::precise_time_s;
 
 pub struct TimeSystem {
@@ -16,11 +17,13 @@ pub struct TimeSystem {
 
 impl System for TimeSystem { type Components = comps::Components; }
 
-impl Process for TimeSystem {
-    fn process(&mut self, data: &mut DataHelper) {
+impl EntityProcess for TimeSystem {
+    fn process(&mut self, iter: EntityIter, data: &mut DataHelper) {
         self.tick();
 
-        for e 
+        for e in iter {
+            data.time_data[e].dt = self.dt;
+        }
     }
 }
 
@@ -42,5 +45,11 @@ impl TimeSystem {
 
     pub fn tick(&mut self) {
         self.frames += 1;
+
+        self.last_time = self.curr_time;
+        self.curr_time = precise_time_s();
+
+        self.dt64 = self.curr_time - self.last_time;
+        self.dt = self.dt64 as f32;
     }
 }
