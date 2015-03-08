@@ -13,7 +13,7 @@ impl System for QuitSystem { type Components = comps::Components; }
 impl Process for QuitSystem {
     fn process(&mut self, _: &mut DataHelper) {
         if !self.quit {
-            println!("Not quitting yet...");
+            // Arbitrary wait
             sleep(Duration::milliseconds(100));
         }
     }
