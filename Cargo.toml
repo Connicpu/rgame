@@ -1,0 +1,12 @@
+[package]
+name = "rgame"
+version = "0.0.1"
+authors = ["Connor Hilarides <connorcpu@live.com>"]
+
+[dependencies]
+ecs = "*"
+
+[dependencies.glium]
+git = "https://github.com/tomaka/glium.git"
+[dependencies.glium_macros]
+git = "https://github.com/tomaka/glium.git"
