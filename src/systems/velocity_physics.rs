@@ -12,12 +12,16 @@ impl EntityProcess for VelocityPhysics {
         for e in iter {
             let time = data.time_data[e];
             let velocity = data.velocity[e];
-            let position = &mut data.position[e];
+            let mut position = data.position[e];
 
             position.x += velocity.dx * time.dt;
             position.y += velocity.dy * time.dt;
 
-            println!("{:?} is now at {:?}", *e, position);
+            data.position[e] = position;
+
+            if let Some(_) = data.debug_print.get(&e) {
+                println!("{:?} is now at {:?}", *e, position);
+            }
         }
     }
 }

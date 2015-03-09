@@ -12,12 +12,16 @@ impl EntityProcess for AccelerationPhysics {
         for e in iter {
             let time = data.time_data[e];
             let acceleration = data.acceleration[e];
-            let velocity = &mut data.velocity[e];
+            let mut velocity = data.velocity[e];
 
             velocity.dx += acceleration.ax * time.dt;
             velocity.dy += acceleration.ay * time.dt;
 
-            println!("{:?} now has {:?}", *e, velocity);
+            data.velocity[e] = velocity;
+
+            if let Some(_) = data.debug_print.get(&e) {
+                println!("{:?} now has {:?}", *e, velocity);
+            }
         }
     }
 }

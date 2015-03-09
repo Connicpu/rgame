@@ -11,5 +11,8 @@ components! {
         #[hot] scale: core::Scale,
 
         #[cold] sprite: graphics::Sprite,
+
+        // Markers
+        #[cold] debug_print: core::DebugPrint,
     }
 }
