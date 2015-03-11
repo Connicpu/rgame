@@ -29,6 +29,7 @@ pub type EntityIter<'a> = ecs::entity::EntityIter<'a, Components>;
 
 fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
                pos: core::Position, vel: core::Velocity, accel: core::Acceleration) {
+    println!("Making wizard...");
     world.create_entity(
         |entity: BuildData, data: &mut Components| {
             data.position.add(&entity, pos);
@@ -38,8 +39,11 @@ fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
             data.time_data.add(&entity, core::TimeData::new());
             data.scale.add(&entity, core::Scale::uniform(0.1));
 
-            let img = image::load(BufReader::new(include_bytes!("../test-data/wizard_yellow.png")), image::PNG).unwrap();
-            let sprite = Texture2d::new(&display, img);
+            println!("Making sprite...");
+            let img = image::load(BufReader::new(
+                include_bytes!("../test-data/wizard_yellow.png")),
+                image::PNG).unwrap();
+            let sprite = Texture2d::new(display, img);
             data.sprite.add(&entity, Sprite { texture: Arc::new(sprite) });
         }
     );
@@ -48,8 +52,12 @@ fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
 fn main() {
     let mut world = World::<Components, Systems>::new();
 
+    println!("Initializing sprite system");
+
     let display = world.systems.graphics.display.clone();
     world.systems.sprites.init(display.clone());
+
+    println!("Graphics initialized");
 
     make_wizard(
         &mut world, &display,

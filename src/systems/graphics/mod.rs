@@ -16,10 +16,14 @@ impl GraphicsSystem {
         use glutin;
         use glium::DisplayBuild;
 
+        println!("Initializing graphics");
+
         let display = glutin::WindowBuilder::new()
             .with_dimensions(1024, 768)
             .with_title(format!("rgame is bestgame"))
             .build_glium().unwrap();
+
+        println!("Window made!");
 
         GraphicsSystem {
             display: display,

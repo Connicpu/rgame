@@ -3,6 +3,11 @@ use ecs::system::entity::EntityProcess;
 use {DataHelper, EntityIter};
 use components as comps;
 use glium::{Display, Program};
+use glium::texture as tex;
+
+pub enum SpriteTexture {
+    Texture2d(tex::Texture2d),
+}
 
 pub struct SpriteSystem {
     pub display: Option<Display>,

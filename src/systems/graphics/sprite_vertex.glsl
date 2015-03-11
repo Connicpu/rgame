@@ -1,4 +1,4 @@
-#version 110
+#version 330
 
 uniform mat4 camera;
 
