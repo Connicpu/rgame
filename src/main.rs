@@ -52,6 +52,8 @@ fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
 fn main() {
     let mut world = World::<Components, Systems>::new();
 
+    println!("{:?}", world.systems.graphics.display.get_supported_glsl_version());
+
     println!("Initializing sprite system");
 
     let display = world.systems.graphics.display.clone();
