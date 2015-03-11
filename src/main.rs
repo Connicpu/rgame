@@ -54,6 +54,7 @@ fn main() {
 
     println!("{:?}", world.systems.graphics.display.get_supported_glsl_version());
 
+    world.systems.graphics.display.assert_no_error();
     println!("Initializing sprite system");
 
     let display = world.systems.graphics.display.clone();
