@@ -52,6 +52,7 @@ fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
 fn main() {
     let mut world = World::<Components, Systems>::new();
 
+    println!("{:?}", world.systems.graphics.display.get_opengl_version());
     println!("{:?}", world.systems.graphics.display.get_supported_glsl_version());
 
     world.systems.graphics.display.assert_no_error();
