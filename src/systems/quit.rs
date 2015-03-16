@@ -8,7 +8,7 @@ pub struct QuitSystem {
     quit: bool,
 }
 
-impl System for QuitSystem { type Components = comps::Components; }
+impl System for QuitSystem { system_boilerplate!(); }
 
 impl Process for QuitSystem {
     fn process(&mut self, _: &mut DataHelper) {

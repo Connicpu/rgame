@@ -5,7 +5,7 @@ use {DataHelper, EntityIter};
 
 pub struct VelocityPhysics;
 
-impl System for VelocityPhysics { type Components = comps::Components; }
+system_boilerplate!(VelocityPhysics);
 
 impl EntityProcess for VelocityPhysics {
     fn process(&mut self, iter: EntityIter, data: &mut DataHelper) {

@@ -7,11 +7,12 @@ authors = ["Connor Hilarides <connorcpu@live.com>"]
 ecs = "*"
 image = "*"
 glutin = "*"
+glium = "*"
+time = "*"
 
-[dependencies.time]
-git = "https://github.com/rust-lang/time.git"
-
-[dependencies.glium]
-git = "https://github.com/tomaka/glium.git"
-[dependencies.glium_macros]
-git = "https://github.com/tomaka/glium.git"
+#[dependencies.time]
+#git = "https://github.com/rust-lang/time.git"
+#[dependencies.glium]
+#git = "https://github.com/tomaka/glium.git"
+#[dependencies.glium_macros]
+#git = "https://github.com/tomaka/glium.git"

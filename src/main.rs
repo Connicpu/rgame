@@ -14,20 +14,29 @@ use ecs::{World, BuildData};
 use components::Components;
 use components::core;
 use components::graphics::Sprite;
-use systems::Systems;
+use systems::{Systems, Services};
 
 use glium::Display;
 use glium::texture::Texture2d;
 use std::sync::Arc;
 use std::old_io::BufReader;
 
+macro_rules! system_boilerplate {
+    ($stype:ident) => (
+        impl ::ecs::System for $stype {
+            type Components = $crate::components::Components;
+            type Services = $crate::systems::Services;
+        }
+    )
+}
+
 pub mod components;
 pub mod systems;
 
-pub type DataHelper = ecs::world::DataHelper<Components>;
+pub type DataHelper = ecs::world::DataHelper<Components, Services>;
 pub type EntityIter<'a> = ecs::entity::EntityIter<'a, Components>;
 
-fn make_wizard(world: &mut World<Components, Systems>, display: &Display,
+fn make_wizard(world: &mut World<Systems>, display: &Display,
                pos: core::Position, vel: core::Velocity, accel: core::Acceleration) {
     println!("Making wizard...");
     world.create_entity(

@@ -9,6 +9,7 @@ use glium::index::TriangleStrip;
 use systems::graphics::SpriteSystem;
 use DataHelper;
 use ecs::EntityData;
+use super::Components;
 
 #[derive(Clone, Debug)]
 pub struct Sprite {
@@ -25,7 +26,7 @@ pub struct SpriteVertex {
 implement_vertex!(SpriteVertex, position, tex_coord, color);
 
 impl Sprite {
-    pub fn draw<S>(&self, e: EntityData, data: &DataHelper,
+    pub fn draw<S>(&self, e: EntityData<Components>, data: &DataHelper,
                    sys: &SpriteSystem, target: &mut S)
                    where S: Surface {
         let white = [1.0, 1.0, 1.0, 1.0];

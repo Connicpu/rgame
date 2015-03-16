@@ -33,7 +33,7 @@ impl SpriteSystem {
     }
 }
 
-impl System for SpriteSystem { type Components = comps::Components; }
+impl System for SpriteSystem { system_boilerplate!(); }
 
 impl EntityProcess for SpriteSystem {
     fn process(&mut self, iter: EntityIter, data: &mut DataHelper) {

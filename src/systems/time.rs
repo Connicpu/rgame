@@ -15,7 +15,7 @@ pub struct TimeSystem {
     pub dt: f32,
 }
 
-impl System for TimeSystem { type Components = comps::Components; }
+impl System for TimeSystem { system_boilerplate!(); }
 
 impl EntityProcess for TimeSystem {
     fn process(&mut self, iter: EntityIter, data: &mut DataHelper) {

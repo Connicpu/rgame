@@ -1,6 +1,6 @@
 use ecs::System;
 use ecs::system::EntitySystem;
-use components::Components;
+use components::{Components, core};
 use self::velocity_physics as vp;
 use self::acceleration_physics as ap;
 
@@ -10,8 +10,14 @@ pub mod quit;
 pub mod time;
 pub mod velocity_physics;
 
+services! {
+    Services {
+        time: core::TimeData = core::TimeData::new(),
+    }
+}
+
 systems! {
-    Systems<Components> {
+    Systems<Components, Services> {
         time: EntitySystem<time::TimeSystem> = EntitySystem::new(
             time::TimeSystem::new(),
             aspect!(<Components> all: [time_data])
